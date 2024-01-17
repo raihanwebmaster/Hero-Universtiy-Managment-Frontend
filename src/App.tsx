@@ -1,10 +1,9 @@
+import MainLayout from "./components/layout/MainLayout"
 
 function App() {
 
   return (
-    <>
-    <h1>Hero University Management Frontend</h1>
-    </>
+    <MainLayout/>
   )
 }
 
