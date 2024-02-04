@@ -16,8 +16,8 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
 const defaultValues = {
-  userId: 'A-0001',
-  password: "1234"
+  userId: '0001',
+  password: "ADMIN12345"
 }
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Logging in");

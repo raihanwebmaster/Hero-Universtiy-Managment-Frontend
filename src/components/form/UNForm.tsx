@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/**
- * eslint-disable @typescript-eslint/no-explicit-any
- *
- * @format
- */
 
-/** @format */
-
+import { Form } from "antd";
 import { ReactNode } from "react";
 import {
   FieldValues,
@@ -16,21 +10,30 @@ import {
 } from "react-hook-form";
 type TFromConfig = {
   defaultValues?: Record<string, any>;
+  resolver?: any;
 };
 
 type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
 } & TFromConfig;
-const UNForm = ({ onSubmit, children, defaultValues }: TFormProps) => {
+const UNForm = ({ onSubmit, children, defaultValues, resolver }: TFormProps) => {
   const formConfig: TFromConfig = {};
   if (defaultValues) {
     formConfig["defaultValues"] = defaultValues;
   }
+  if (resolver) {
+    formConfig["resolver"] = resolver;
+  }
   const methods = useForm(formConfig);
+
+  const submit: SubmitHandler<FieldValues> = (data) => {
+    onSubmit(data);
+    methods.reset();
+  };
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+      <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>{children}</Form>
     </FormProvider>
   );
 };

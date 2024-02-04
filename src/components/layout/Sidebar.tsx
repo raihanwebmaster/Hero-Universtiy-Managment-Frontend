@@ -14,11 +14,13 @@ const Sidebar = () => {
     ADMIN: "admin",
     FACULTY: "faculty",
     STUDENT: "student",
+    SUPERADMIN: "superAdmin"
   };
 
 
   let sidebarItems;
   switch (user!.role) {
+    case userRole.SUPERADMIN:
     case userRole.ADMIN:
       sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
       break;
@@ -34,7 +36,7 @@ const Sidebar = () => {
   }
 
   return (
-    <Sider breakpoint='lg' collapsedWidth='0'>
+    <Sider breakpoint='lg' collapsedWidth='0' style={{ height: '100vh', position: "sticky", top:"0", left: "0"}}>
       <div
         style={{
           color: "white",
