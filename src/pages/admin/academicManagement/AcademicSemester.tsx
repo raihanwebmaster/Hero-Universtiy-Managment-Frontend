@@ -1,7 +1,7 @@
 /** @format */
 
 import { Button, Table, TableColumnsType, TableProps } from "antd";
-import { useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagement.api";
+import { useGetAcademicSemestersQuery } from "../../../redux/features/admin/academicManagement.api";
 import { TAcademicSemester, TQueryParam } from "../../../types";
 import { useState } from "react";
 
@@ -14,7 +14,7 @@ export type TTableData = Pick<
 
 const AcademicSemester = () => {
   const [params, setParmas] = useState<TQueryParam[] | undefined>(undefined);
-  const { data: semesterData, isFetching } = useGetAllSemestersQuery(params);
+  const { data: semesterData, isFetching } = useGetAcademicSemestersQuery(params);
   const tableData = semesterData?.data?.map(
     ({ _id, name, startMonth, endMonth, year }) => ({
       key: _id,

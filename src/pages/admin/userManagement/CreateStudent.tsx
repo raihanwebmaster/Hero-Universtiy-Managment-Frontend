@@ -5,7 +5,7 @@ import UNInput from "../../../components/form/UNInput";
 import UNSelect from "../../../components/form/UNSelect";
 import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 import UNDatePicker from "../../../components/form/UNDatePicker";
-import { useGetAcademicDepartmentsQuery, useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagement.api";
+import { useGetAcademicDepartmentsQuery, useGetAcademicSemestersQuery } from "../../../redux/features/admin/academicManagement.api";
 import { useAddStudentMutation } from "../../../redux/features/admin/usermanagement.api";
 
 // const studentDummyData = {
@@ -84,7 +84,7 @@ const CreateStudent = () => {
   const [addStudent, { data, error }] = useAddStudentMutation();
   console.log({ data, error });
   const { data: sData, isLoading: sIsLoading } =
-    useGetAllSemestersQuery(undefined);
+  useGetAcademicSemestersQuery(undefined);
 
   const { data: dData, isLoading: dIsLoading } =
     useGetAcademicDepartmentsQuery(undefined);
