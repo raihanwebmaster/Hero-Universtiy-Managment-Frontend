@@ -28,7 +28,7 @@ const MainLayout = () => {
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" , position: "sticky", bottom:"0",  zIndex: '1' }}>
+        <Footer style={{ textAlign: "center" , position: "sticky", bottom:"0",  zIndex: '1', background: "#c3c3c3" }}>
           HERO UNIVERSITY ©{new Date().getFullYear()} Created by HU
         </Footer>
       </Layout>
