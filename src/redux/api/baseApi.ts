@@ -22,7 +22,6 @@ const baseQuery = fetchBaseQuery({
     if (token) {
       headers.set("authorization", `${token}`);
     }
-
     return headers;
   },
 });
@@ -44,9 +43,9 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   }
   if (result?.error?.status === 401) {
 
-    const res = await fetch("http://localhost:8000/api/v1/auth/refresh-token", {
-      method: "POST",
-      credentials: "include",
+    const res = await fetch('http://localhost:8000/api/v1/auth/refresh-token', {
+      method: 'POST',
+      credentials: 'include',
     });
 
     const data = await res.json();
@@ -73,6 +72,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
-  tagTypes: ['semester', 'courses'],
+  tagTypes: ['semester', 'courses', 'offeredCourse'],
   endpoints: () => ({}),
 });

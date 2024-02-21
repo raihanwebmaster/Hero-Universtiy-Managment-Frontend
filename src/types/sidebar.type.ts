@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 
 export type TUserPath = {
-  name: string;
+  name?: string;
   path?: string;
   element?: ReactNode;
   children?: TUserPath[];
@@ -16,7 +16,7 @@ export type TRoute = {
 
 export type TSidebarItem =
   | {
-      key: string;
+      key: string | undefined;
       label: ReactNode;
       children?: TSidebarItem[];
     }
