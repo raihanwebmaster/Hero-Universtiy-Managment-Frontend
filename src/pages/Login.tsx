@@ -19,9 +19,13 @@ const Login = () => {
   //   userId: '0001',
   //   password: "ADMIN12345"
   // }
+  // const defaultValues = {
+  //   userId: '2024010001',
+  //   password: "student1234"
+  // }
   const defaultValues = {
-    userId: '2024010001',
-    password: "student123"
+    userId: 'F-0001',
+    password: "faculty1234"
   }
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Logging in");
